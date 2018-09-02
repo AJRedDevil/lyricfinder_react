@@ -10,3 +10,5 @@ export const getChartTracksURL = () => musixMatchAPI("chart.tracks.get?page=1&pa
 export const getTrackLyricsURL = (id) => musixMatchAPI(`track.lyrics.get?track_id=${id}`);
 
 export const getTracksInfoURL = (id) => musixMatchAPI(`track.get?track_id=${id}`);
+
+export const getTrackSearchURL = (trackTitle) => musixMatchAPI(`track.search?q_track=${trackTitle}&page_size=10&page=1&s_track_rating=desc`);
