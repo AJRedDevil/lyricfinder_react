@@ -5,10 +5,24 @@ import { getChartTracksURL } from './util';
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  switch(action.type) {
+    case 'SEARCH_TRACKS':
+      return {
+        ...state,
+        trackList: action.payload,
+        heading: 'Search Results'
+      };
+    default:
+      return state;
+  }
+}
+
 export class Provider extends Component {
   state = {
     trackList: [],
-    heading: 'Top 10 Tracks'
+    heading: 'Top 10 Tracks',
+    dispatch: action => this.setState(state => reducer(state, action))
   }
 
   componentDidMount() {
